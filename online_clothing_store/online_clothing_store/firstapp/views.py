@@ -1,12 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("<h2>Главная</h2>")
-
-def about(request):
-    return HttpResponse("<h2>О сайте</h2>")
-
-def contact(request):
-    return HttpResponse("<h2>Контакты</h2>")
+    header = "Персональные данные" # обычная переменная
+    langs = ["Английский", "Немецкий", "Испанский"] # массив
+    user = {"name": "Максим,", "age": 30} # словарь
+    addr = ("Виноградная", 23, 45) # кортеж
+    data = {"header": header, "langs": langs, "user": user, "address": addr}
+    return render(request, "index.html", context=data)
